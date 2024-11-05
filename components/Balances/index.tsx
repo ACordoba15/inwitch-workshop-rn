@@ -13,10 +13,16 @@ const WalletMasterBalance = () => {
 
     const filteredData = balance.filter((item: any) => {
         if (input === '') {
-          return balance;
+          return true;
         } 
         else {
-          return item.paymentMethodReference.toLowerCase().includes(input)
+            const lowerInput = input.toLowerCase(); // Convierte el input a minúsculas una vez
+            return (
+              item.paymentMethodReference?.toLowerCase().includes(lowerInput) ||
+              item.paymentMethodType?.toLowerCase().includes(lowerInput) ||
+              item.paymentMethodTypeClass?.toLowerCase().includes(lowerInput) || 
+              item.paymentMethodAlias?.toLowerCase().includes(lowerInput)
+            )
         }
       })
 
