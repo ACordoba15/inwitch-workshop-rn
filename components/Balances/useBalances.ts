@@ -4,7 +4,7 @@ import { axiosInstance, getAccessToken } from "@/utils/networking";
 const API_WALLET = process.env.EXPO_PUBLIC_API_WALLET
 
 export default function useGetBalance(entityId: number) {
-  const [balance, setBalance] = useState();
+  const [balance, setBalance] = useState<any[]>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
