@@ -9,9 +9,9 @@ import React, { useState } from "react";
 const WalletMasterBalance = () => {
 	const { balance, loading, error } = useGetBalance(entityMaster);
     const [input, setInput] = useState<string>("");
-   
+    console.log(balance)
 
-    const filteredData = balance.filter((item: any) => {
+    const filteredData = balance?.filter((item: any) => {
         if (input === '') {
           return true;
         } 
@@ -43,7 +43,7 @@ const WalletMasterBalance = () => {
                     }}
                 />
                 <TextWrapper>
-					Total de registros: {filteredData.length}
+					Total de registros: {filteredData?.length}
 				</TextWrapper>
             
 			<FlatList
